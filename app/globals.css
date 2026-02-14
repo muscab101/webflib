@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap');
 @import "tailwindcss";
 /* @import "tw-animate-css"; */
 @import "shadcn/tailwind.css";
@@ -225,4 +226,10 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+.geist-mono-uniquifier {
+  font-family: "Geist Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }

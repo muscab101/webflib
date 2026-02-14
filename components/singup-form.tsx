@@ -35,6 +35,7 @@ export function SignUpForm({
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false); // Loading state
 
+
   const router = useRouter()
 
   const handleSignUp = async (e: React.FormEvent) => {
@@ -46,6 +47,9 @@ export function SignUpForm({
     // 1. Create the user in Firebase Auth
     const result = await createUserWithEmailAndPassword(auth, email, password);
     const user = result.user;
+     router.push('/');
+    
+    
 
     // 2. Update the Auth profile with the display name
     await updateProfile(user, {
@@ -63,7 +67,7 @@ export function SignUpForm({
     });
 
     // 4. Redirect to home
-    router.push('/');
+   
   } catch (error: any) {
     if (error.code === 'auth/email-already-in-use') {
       setError("This email is already in use.");
@@ -147,7 +151,7 @@ const handleGoogleSignIn = async () => {
             placeholder="••••••••" 
             required 
           />
-          <FieldDescription>Ugu yaraan 6 xaraf.</FieldDescription>
+          <FieldDescription>At least 6 chracters.</FieldDescription>
         </Field>
 
         <Field>
@@ -156,7 +160,7 @@ const handleGoogleSignIn = async () => {
             {isLoading ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Dhisidda akoonka...
+                Creating...
               </>
             ) : (
               "Create Account"
