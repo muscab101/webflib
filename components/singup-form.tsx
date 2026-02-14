@@ -103,7 +103,7 @@ export function SignUpForm({
       router.refresh();
     } catch (error: any) {
       console.error("Google Error:", error);
-      setError("Google Login waa uu fashilmay.");
+      setError("your google login is something wrong.");
     } finally {
       setIsLoading(false);
     }

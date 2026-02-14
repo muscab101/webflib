@@ -3,7 +3,7 @@
 import React from 'react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Star, StarHalf } from 'lucide-react'
+import { SquareDashed, Star, StarHalf } from 'lucide-react'
 import { 
   Avatar, 
   AvatarFallback, 
@@ -27,12 +27,12 @@ const Hero = () => {
           variant="outline" 
           className="px-4 py-1 border-primary/20 bg-primary/5 text-primary animate-pulse"
         >
-          🚀 New: Get your dream website 10s
+          <SquareDashed className=' size-4 ' /> New: Get your dream website 10s
         </Badge>
 
         {/* Main Title */}
         <h1 className="geist-mono-uniquifier text-5xl md:text-7xl  tracking-tight text-foreground leading-[1.1]">
-          Buy and Sell <br /> 
+          Buy your dream web<br /> 
           <span className="text-primary">Websites</span> <br />
           with Confidence.
         </h1>
