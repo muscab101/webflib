@@ -27,7 +27,7 @@ const Hero = () => {
           variant="outline" 
           className="px-4 py-1 border-primary/20 bg-primary/5 text-primary animate-pulse"
         >
-          🚀 New: Build your portfolio faster
+          🚀 New: Get your dream website 10s
         </Badge>
 
         {/* Main Title */}
