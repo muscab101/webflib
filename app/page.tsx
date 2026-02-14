@@ -11,43 +11,38 @@ import { ModeToggle } from "@/components/mode-toggle";
 import Navbar from "./_components/Navbar";
 import ArrowsBg from "./_components/ArrowsBg";
 import Hero from "./_components/Hero";
+import HowItWorks from "./_components/HowItWorks";
+import FAQ from "./_components/FAQ";
+import Support from "./_components/Support";
+import Footer from "./_components/Footer";
 
 export default function Home() {
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    // This tracks the authentication state (Logged in/out)
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setLoading(false);
-    });
 
-    return () => unsubscribe(); 
-  }, []);
-
-  // Logout function
-  const handleLogout = async () => {
-    try {
-      await signOut(auth);
-    } catch (error) {
-      console.error("Error signing out:", error);
-    }
-  };
-
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <LoaderCircle className="animate-spin size-10 text-primary" />
-      </div>
-    );
-  }
-
-  return (
-    <div>
-      <Navbar/>
-      <ArrowsBg/>
-      <Hero/>
+ return (
+  <div>
+    <Navbar />
+    <ArrowsBg />
+    
+    {/* Qaybta Hero had iyo jeer waa bilowga boga */}
+    <div id="home">
+      <Hero />
     </div>
-  );
+
+    {/* Qaybta How It Works */}
+    <div id="how-it-works">
+      <HowItWorks />
+    </div>
+
+    {/* Qaybta FAQ */}
+    <div id="faqs">
+      <FAQ />
+    </div>
+
+    <div id="support">
+      <Support/>
+    </div>
+    <Footer/>
+  </div>
+);
 }

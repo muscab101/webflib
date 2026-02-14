@@ -36,10 +36,11 @@ const Navbar = () => {
   };
 
   const items = [
-    { name: "home", id: 1, url: '/' },
-    { name: "how it works", id: 2, url: '#' },
-    { name: "support", id: 4, url: '#' }
-  ];
+  { name: "home", id: 1, url: '/' },
+  { name: "how it works", id: 2, url: '#how-it-works' }, // ID-ga qaybtaas
+  { name: "FAQs", id: 3, url: '#faqs' },
+  { name: "support", id: 4, url: '#support' }
+];
 
   return (
     <nav className="fixed top-4 inset-x-0 z-50 flex justify-center px-4 font-mono">
