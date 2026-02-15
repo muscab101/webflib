@@ -179,7 +179,7 @@ const DashboardNavbar = () => {
                   <Menu className="size-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] rounded-none font-mono lowercase border-l-2">
+              <SheetContent side="right" className="w-full rounded-none font-mono lowercase border-l-2">
                 <SheetHeader className="text-left border-b pb-4">
                   <SheetTitle className="flex items-center gap-2 lowercase">
                     <GalleryVerticalEnd className="size-5 text-primary" />
