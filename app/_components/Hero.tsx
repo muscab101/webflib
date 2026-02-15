@@ -3,7 +3,7 @@
 import React from 'react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { SquareDashed, Star, StarHalf } from 'lucide-react'
+import {  SquareDashed, Star, StarHalf } from 'lucide-react'
 import { 
   Avatar, 
   AvatarFallback, 
@@ -12,6 +12,7 @@ import {
   AvatarImage 
 } from "@/components/ui/avatar"
 import ArrowsBg from './ArrowsBg' 
+import Link from 'next/link'
 
 const Hero = () => {
   return (
@@ -45,9 +46,11 @@ const Hero = () => {
 
         {/* Action Buttons */}
         <div className="flex flex-wrap items-center gap-4 mt-2">
-          <Button size="lg" className=" font-bold  shadow-lg shadow-primary/20 active:scale-95 transition-transform">
-            Get Started
-          </Button>
+          <Link href="/dashboard">
+            <Button size="lg" className=" font-bold  shadow-lg shadow-primary/20 active:scale-95 transition-transform">
+              Get Started
+            </Button>
+          </Link>
           <Button size="lg" variant="outline" className=" font-bold  hover:bg-primary/5">
             Browse Listings
           </Button>

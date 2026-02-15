@@ -47,7 +47,7 @@ export function LoginForm({
   const handleGoogleLogin = async () => {
     try {
       await signInWithPopup(auth, googleProvider)
-      router.push("/")
+      router.push("/dashboard") // Redirect to dashboard on success
     } catch (err: any) {
       console.error(err.message)
     }
