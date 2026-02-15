@@ -1,48 +1,41 @@
 "use client"
 
 import * as React from "react"
-import { Moon, Sun, Monitor } from "lucide-react" // Monitor waa icon-ka System-ka
+import { Moon, Sun, Monitor } from "lucide-react"
 import { useTheme } from "next-themes"
-
-import { Button } from "@/components/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+import { cn } from "@/lib/utils"
 
 export function ModeToggle() {
-  const { setTheme } = useTheme()
+  const { setTheme, theme } = useTheme()
+
+  const options = [
+    { name: "light", value: "light", icon: Sun },
+    { name: "dark", value: "dark", icon: Moon },
+    { name: "sys", value: "system", icon: Monitor },
+  ]
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
-          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          <span className="sr-only">Beddel Theme-ka</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        {/* Option 1: Light Mode */}
-        <DropdownMenuItem onClick={() => setTheme("light")}>
-          <Sun className="mr-2 h-4 w-4" />
-          <span>Light</span>
-        </DropdownMenuItem>
+    <div className="flex w-full border-2 border-foreground/10 bg-muted/20 p-1 rounded-none">
+      {options.map((opt) => {
+        const Icon = opt.icon
+        const isActive = theme === opt.value
 
-        {/* Option 2: Dark Mode */}
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          <Moon className="mr-2 h-4 w-4" />
-          <span>Dark</span>
-        </DropdownMenuItem>
-
-        {/* Option 3: System Mode */}
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          <Monitor className="mr-2 h-4 w-4" />
-          <span>System</span>
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+        return (
+          <button
+            key={opt.value}
+            onClick={() => setTheme(opt.value)}
+            className={cn(
+              "flex flex-1 items-center justify-center gap-2 px-2 py-1.5 text-[10px] font-bold transition-all rounded-none lowercase",
+              isActive 
+                ? "bg-primary text-primary-foreground" // Waa "ON"
+                : "hover:bg-foreground/5 text-muted-foreground" // Waa "OFF"
+            )}
+          >
+            <Icon className="size-3" />
+            {opt.name}
+          </button>
+        )
+      })}
+    </div>
   )
 }
